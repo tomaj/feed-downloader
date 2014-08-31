@@ -29,15 +29,15 @@ class RssProcessor implements ProcessorInterface
     private function processXml($content, $callback)
     {
         try {
-            $xml = new SimpleXMLElement($content);
-        } catch (Exception $e) {
+            $xml = new \SimpleXMLElement($content);
+        } catch (\Exception $e) {
             return self::PARSE_ERROR;
         }
 
         $result = $xml->xpath($this->xpathItems);
 
         foreach ($result as $item) {
-            $feedItem = new FeedItem();
+            $feedItem = new \Tomaj\RssDownloader\FeedItem();
 
             $feedItem->title = (string)$item->title;
             $feedItem->link = (string)$item->link;
