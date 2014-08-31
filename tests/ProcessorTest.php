@@ -15,21 +15,22 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
         $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
 
         $counter = 0;
-        $processor->processFeed(OK_URL, function(\Tomaj\RssDownloader\FeedItem $item) use (&$counter) {
+        $self = $this;
+        $processor->processFeed(OK_URL, function(\Tomaj\RssDownloader\FeedItem $item) use (&$counter, $self) {
             $counter++;
             if ($counter == 1) {
-                $this->assertEquals('Koňak ako zberateľský artikel', $item->title);
-                $this->assertEquals('http://restauracie.etrend.sk/restauracie-vino/konak-ako-zberatelsky-artikel.html', $item->link);
-                $this->assertEquals('Koňak, rovnako ako akýkoľvek iný akostný alkoholický nápoj, je primárne určený na vychutnávanie a na príjemné trávenie času. No rovnako ako prvotriedne vína, aj on je vďačným objektom zberateľov.', $item->description);
-                $this->assertEquals('http://restauracie.etrend.sk/restauracie-vino/konak-ako-zberatelsky-artikel.html', $item->guid);
-                $this->assertEquals('Sat, 30 Aug 2014 07:36:00 GMT', $item->pubDate);
+                $self->assertEquals('Koňak ako zberateľský artikel', $item->title);
+                $self->assertEquals('http://restauracie.etrend.sk/restauracie-vino/konak-ako-zberatelsky-artikel.html', $item->link);
+                $self->assertEquals('Koňak, rovnako ako akýkoľvek iný akostný alkoholický nápoj, je primárne určený na vychutnávanie a na príjemné trávenie času. No rovnako ako prvotriedne vína, aj on je vďačným objektom zberateľov.', $item->description);
+                $self->assertEquals('http://restauracie.etrend.sk/restauracie-vino/konak-ako-zberatelsky-artikel.html', $item->guid);
+                $self->assertEquals('Sat, 30 Aug 2014 07:36:00 GMT', $item->pubDate);
             }
             elseif ($counter == 2) {
-                $this->assertEquals('Ekvádor chystá prvú digitálnu menu sveta s podporou centrálnej banky', $item->title);
-                $this->assertEquals('http://ekonomika.etrend.sk/svet/ekvador-chysta-prvu-digitalnu-menu-sveta-s-podporou-centralnej-banky.html', $item->link);
-                $this->assertEquals('Ekvádor plánuje vytvoriť vlastnú digitálnu menu, ktorá by mala byť prvou digitálnou menou na svete vydávanou centrálnou bankou. Podľa niektorých analytikov oslovených agentúrou AP je to prvý krok k opusteniu súčasnej oficiálnej meny v krajine, ktorou je americký dolár. Vláda to zatiaľ popiera.', $item->description);
-                $this->assertEquals('http://ekonomika.etrend.sk/svet/ekvador-chysta-prvu-digitalnu-menu-sveta-s-podporou-centralnej-banky.html', $item->guid);
-                $this->assertEquals('Sat, 30 Aug 2014 07:20:42 GMT', $item->pubDate);
+                $self->assertEquals('Ekvádor chystá prvú digitálnu menu sveta s podporou centrálnej banky', $item->title);
+                $self->assertEquals('http://ekonomika.etrend.sk/svet/ekvador-chysta-prvu-digitalnu-menu-sveta-s-podporou-centralnej-banky.html', $item->link);
+                $self->assertEquals('Ekvádor plánuje vytvoriť vlastnú digitálnu menu, ktorá by mala byť prvou digitálnou menou na svete vydávanou centrálnou bankou. Podľa niektorých analytikov oslovených agentúrou AP je to prvý krok k opusteniu súčasnej oficiálnej meny v krajine, ktorou je americký dolár. Vláda to zatiaľ popiera.', $item->description);
+                $self->assertEquals('http://ekonomika.etrend.sk/svet/ekvador-chysta-prvu-digitalnu-menu-sveta-s-podporou-centralnej-banky.html', $item->guid);
+                $self->assertEquals('Sat, 30 Aug 2014 07:20:42 GMT', $item->pubDate);
             }
         });
 
