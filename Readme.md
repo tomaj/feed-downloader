@@ -1,6 +1,12 @@
 Rss downloader
 ==============
 
+[![Build Status](https://secure.travis-ci.org/tomaj/rss-downloader.png)](http://travis-ci.org/tomaj/rss-downloader)
+
+[![Latest Stable Version](https://poser.pugx.org/tomaj/rss-downloader/v/stable.svg)](https://packagist.org/packages/tomaj/rss-downloader)
+[![Latest Unstable Version](https://poser.pugx.org/tomaj/rss-downloader/v/unstable.svg)](https://packagist.org/packages/tomaj/rss-downloader)
+[![License](https://poser.pugx.org/tomaj/rss-downloader/license.svg)](https://packagist.org/packages/tomaj/rss-downloader)
+
 Simple library for downloading rss.
 
 Requirements
@@ -11,10 +17,10 @@ rss downloader requires PHP 5.3.0 or higher.
 Instalation
 -----------
 
-The best way to install nette-rte-processor is using [Composer](http://getcomposer.org/):
+The best way to install *rss-downloader* is using [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require tomaj/nette-rte-processor
+$ composer require tomaj/rss-downloader
 ```
 
 Usage
