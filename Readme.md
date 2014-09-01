@@ -33,9 +33,11 @@ $downloader = new \Tomaj\RssDownloader\CurlDownloader();
 $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
 $result = $processor->processFeed($url, function(\Tomaj\RssDownloader\FeedItem $item) {
 	// custom handling $item
-	echo $item->title . "\n";
-	echo $item->description . "\n";
-	echo $item->guid . "\n";
+	echo $item->getTitle() . "\n";
+	echo $item->getLink() . "\n";
+	echo $item->getDescription() . "\n";
+	echo $item->getGuid() . "\n";
+	echo $item->getPubDate() . "\n";
 });
 if ($result === \Tomaj\RssDownloader\RssProcessor::PARSE_ERROR) {
 	// error in xml
