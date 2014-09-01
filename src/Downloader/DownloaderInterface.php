@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomaj\RssDownloader;
+namespace Tomaj\RssDownloader\Downloader;
 
 interface DownloaderInterface
 {

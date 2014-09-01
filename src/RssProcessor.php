@@ -3,6 +3,7 @@
 namespace Tomaj\RssDownloader;
 
 use Tomaj\RssDownloader\Parser\ParserInterface;
+use Tomaj\RssDownloader\Downloader\DownloaderInterface;
 
 class RssProcessor implements ProcessorInterface
 {
@@ -23,10 +24,6 @@ class RssProcessor implements ProcessorInterface
         if (!$content) {
             return self::DOWNLOAD_ERROR;
         }
-
         return $parser->parseContent($content, $callback);
-
-        // $result = $this->processXml($content, $callback);
-        // return $result;
     }
 }

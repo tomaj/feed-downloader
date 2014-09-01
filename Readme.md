@@ -29,7 +29,7 @@ Usage
 You can use rss-downloader to download rss and process data with your function
 
 ```php
-$downloader = new \Tomaj\RssDownloader\CurlDownloader();
+$downloader = new \Tomaj\RssDownloader\Downloader\CurlDownloader();
 $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
 $result = $processor->processFeed($url, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {
 	// custom handling $item
