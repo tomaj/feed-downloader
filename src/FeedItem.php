@@ -18,67 +18,67 @@ class FeedItem
 
     public function setTitle($title)
     {
-    	$this->title = $title;
-    	return $this;
+        $this->title = $title;
+        return $this;
     }
 
     public function setLink($link)
     {
-    	$this->link = $link;
-    	return $this;
+        $this->link = $link;
+        return $this;
     }
 
     public function setDescription($description)
     {
-    	$this->description = $description;
-    	return $this;
+        $this->description = $description;
+        return $this;
     }
 
     public function setGuid($guid)
     {
-    	$this->guid = $guid;
-    	return $this;
+        $this->guid = $guid;
+        return $this;
     }
 
     public function setPubDate($pubDate)
     {
-    	$this->pubDate = $pubDate;
-    	return $this;
+        $this->pubDate = $pubDate;
+        return $this;
     }
 
     public function setUrl($url)
     {
-    	$this->url = $url;
-    	return $this;
+        $this->url = $url;
+        return $this;
     }
 
     public function getTitle()
     {
-    	return $this->title;
+        return $this->title;
     }
 
     public function getLink()
     {
-    	return $this->link;
+        return $this->link;
     }
 
     public function getDescription()
     {
-    	return $this->description;
+        return $this->description;
     }
 
     public function getGuid()
     {
-    	return $this->guid;
+        return $this->guid;
     }
 
     public function getPubDate()
     {
-    	return $this->pubDate;
+        return $this->pubDate;
     }
 
     public function getUrl()
     {
-    	return $this->url;
+        return $this->url;
     }
 }

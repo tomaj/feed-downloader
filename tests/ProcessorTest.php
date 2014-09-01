@@ -16,7 +16,7 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
 
         $counter = 0;
         $self = $this;
-        $processor->processFeed(OK_URL, function(\Tomaj\RssDownloader\FeedItem $item) use (&$counter, $self) {
+        $processor->processFeed(OK_URL, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) use (&$counter, $self) {
             $counter++;
             if ($counter == 1) {
                 $self->assertEquals('Koňak ako zberateľský artikel', $item->getTitle());
@@ -41,7 +41,7 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     {
         $downloader = new FakeDownloader();
         $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-        $result = $processor->processFeed(WRONG_FORMAT, function(\Tomaj\RssDownloader\FeedItem $item) {});
+        $result = $processor->processFeed(WRONG_FORMAT, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {});
         $this->assertEquals(\Tomaj\RssDownloader\RssProcessor::PARSE_ERROR, $result);
     }
 
@@ -49,7 +49,7 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     {
         $downloader = new FakeDownloader();
         $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-        $result = $processor->processFeed(CANNOT_DOWNLOAD, function(\Tomaj\RssDownloader\FeedItem $item) {});
+        $result = $processor->processFeed(CANNOT_DOWNLOAD, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {});
         $this->assertEquals(\Tomaj\RssDownloader\RssProcessor::DOWNLOAD_ERROR, $result);
     }
 }

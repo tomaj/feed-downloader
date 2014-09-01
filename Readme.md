@@ -31,7 +31,7 @@ You can use rss-downloader to download rss and process data with your function
 ```php
 $downloader = new \Tomaj\RssDownloader\CurlDownloader();
 $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-$result = $processor->processFeed($url, function(\Tomaj\RssDownloader\FeedItem $item) {
+$result = $processor->processFeed($url, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {
 	// custom handling $item
 	echo $item->getTitle() . "\n";
 	echo $item->getLink() . "\n";

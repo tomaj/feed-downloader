@@ -2,11 +2,11 @@
 
 namespace Tomaj\RssDownloader;
 
+use Tomaj\RssDownloader\Parser\ParserInterface;
+
 class RssProcessor implements ProcessorInterface
 {
     private $downloader;
-
-    private $xpathItems = '//channel/item';
 
     const PARSE_ERROR    = 10;
     const DOWNLOAD_ERROR = 20;
@@ -17,38 +17,16 @@ class RssProcessor implements ProcessorInterface
         $this->downloader = $downloader;
     }
 
-    public function processFeed($feedUrl, $callback)
+    public function processFeed($feedUrl, ParserInterface $parser, $callback)
     {
         $content = $this->downloader->fetch($feedUrl);
         if (!$content) {
             return self::DOWNLOAD_ERROR;
         }
-        $result = $this->processXml($content, $callback);
-        return $result;
-    }
 
-    private function processXml($content, $callback)
-    {
-        try {
-            $xml = new \SimpleXMLElement($content);
-        } catch (\Exception $e) {
-            return self::PARSE_ERROR;
-        }
+        return $parser->parseContent($content, $callback);
 
-        $result = $xml->xpath($this->xpathItems);
-
-        foreach ($result as $item) {
-            $feedItem = new \Tomaj\RssDownloader\FeedItem();
-
-            $feedItem->setTitle((string)$item->title);
-            $feedItem->setLink((string)$item->link);
-            $feedItem->setDescription((string)$item->description);
-            $feedItem->setGuid((string)$item->guid);
-            $feedItem->setPubDate((string)$item->pubDate);
-        
-            $callback($feedItem);
-        }
-
-        return self::PROCESS_OK;
+        // $result = $this->processXml($content, $callback);
+        // return $result;
     }
 }
