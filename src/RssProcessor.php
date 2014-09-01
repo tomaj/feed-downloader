@@ -8,8 +8,9 @@ class RssProcessor implements ProcessorInterface
 
     private $xpathItems = '//channel/item';
 
-    const PARSE_ERROR = 10;
+    const PARSE_ERROR    = 10;
     const DOWNLOAD_ERROR = 20;
+    const PROCESS_OK     = true;
 
     public function __construct(DownloaderInterface $downloader)
     {
@@ -39,15 +40,15 @@ class RssProcessor implements ProcessorInterface
         foreach ($result as $item) {
             $feedItem = new \Tomaj\RssDownloader\FeedItem();
 
-            $feedItem->title = (string)$item->title;
-            $feedItem->link = (string)$item->link;
-            $feedItem->description = (string)$item->description;
-            $feedItem->guid = (string)$item->guid;
-            $feedItem->pubDate = (string)$item->pubDate;
+            $feedItem->setTitle((string)$item->title);
+            $feedItem->setLink((string)$item->link);
+            $feedItem->setDescription((string)$item->description);
+            $feedItem->setGuid((string)$item->guid);
+            $feedItem->setPubDate((string)$item->pubDate);
         
             $callback($feedItem);
         }
 
-        return true;
+        return self::PROCESS_OK;
     }
 }
