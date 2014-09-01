@@ -29,17 +29,17 @@ Usage
 You can use rss-downloader to download rss and process data with your function
 
 ```php
-$downloader = \Tomaj\RssDownloader\CurlDownloader();
+$downloader = new \Tomaj\RssDownloader\CurlDownloader();
 $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-$result = $processor->processFeed($url, function(\Tomaj\RssDownloader\FeedItem $item)) {
+$result = $processor->processFeed($url, function(\Tomaj\RssDownloader\FeedItem $item) {
 	// custom handling $item
 	echo $item->title . "\n";
 	echo $item->description . "\n";
 	echo $item->guid . "\n";
 });
-if ($result == \Tomaj\RssDownloader\RssProcessor::PARSE_ERROR) {
+if ($result === \Tomaj\RssDownloader\RssProcessor::PARSE_ERROR) {
 	// error in xml
-} elseif ($result == \Tomaj\RssDownloader\RssProcessor::DOWNLOAD_ERROR) {
+} elseif ($result === \Tomaj\RssDownloader\RssProcessor::DOWNLOAD_ERROR) {
 	// error with downloading
 }
 

@@ -5,7 +5,7 @@ require dirname(__FILE__) . '/FakeDownloader.php';
 
 define('OK_URL', 'afoihjdsgoidhsg');
 define('WRONG_FORMAT', 'asdasfsdaf');
-define('CANNOT_DOWNLOAD', false);
+define('CANNOT_DOWNLOAD', 'uyfuyfufuf');
 
 class ProcessorTest extends PHPUnit_Framework_TestCase
 {
