@@ -23,10 +23,10 @@ class RssParser implements ParserInterface
             $feedItem = new FeedItem();
 
             if (isset($item->title)) {
-                $feedItem->setTitle((string)$item->title);    
+                $feedItem->setTitle((string)$item->title);
             }
             if (isset($item->link)) {
-                $feedItem->setLink((string)$item->link);    
+                $feedItem->setLink((string)$item->link);
             }
             if (isset($item->leadin)) {
                 $feedItem->setDescription((string)$item->leadin);
@@ -35,10 +35,10 @@ class RssParser implements ParserInterface
                 $feedItem->setDescription((string)$item->description);
             }
             if (isset($item->guid)) {
-                $feedItem->setGuid((string)$item->guid);    
+                $feedItem->setGuid((string)$item->guid);
             }
             if (isset($item->pubDate)) {
-                $feedItem->setPubDate((string)$item->pubDate);    
+                $feedItem->setPubDate((string)$item->pubDate);
             }
             if ($item->category) {
                 $feedItem->setCategory((string)$item->category);

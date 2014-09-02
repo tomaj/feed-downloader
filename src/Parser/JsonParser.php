@@ -25,10 +25,10 @@ class JsonParser implements ParserInterface
                 $feedItem->setLink($item->link);
             }
             if (isset($item->lead)) {
-                $feedItem->setDescription($item->lead);    
+                $feedItem->setDescription($item->lead);
             }
             if (isset($item->guid)) {
-                $feedItem->setGuid($item->guid);    
+                $feedItem->setGuid($item->guid);
             }
             if (isset($item->dateFrom)) {
                 $feedItem->setPubDate($item->dateFrom);
