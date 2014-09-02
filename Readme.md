@@ -46,6 +46,12 @@ if ($result === \Tomaj\FeedDownloader\Processor::PARSE_ERROR) {
 }
 
 ```
+Todo
+----
+
+- Encodings conversions
+- DateTime in FeedItem
+- Unify url/link with one getter
 
 -----
 
