@@ -1,8 +1,8 @@
 {
-    "name": "tomaj/rss-downloader",
+    "name": "tomaj/feed-downloader",
     "type": "library",
-    "description": "Simple rss downloader.",
-    "keywords": ["download", "curl", "rss"],
+    "description": "Simple feed downloader.",
+    "keywords": ["download", "curl", "rss", "json", "feed"],
     "authors": [
         {
             "name": "Tomas Majer",

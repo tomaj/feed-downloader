@@ -1,8 +1,8 @@
 <?php
 
-namespace Tomaj\RssDownloader;
+namespace Tomaj\FeedDownloader;
 
-use Tomaj\RssDownloader\Parser\ParserInterface;
+use Tomaj\FeedDownloader\Parser\ParserInterface;
 
 interface ProcessorInterface
 {

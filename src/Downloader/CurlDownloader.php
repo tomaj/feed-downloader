@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomaj\RssDownloader\Downloader;
+namespace Tomaj\FeedDownloader\Downloader;
 
 class CurlDownloader implements DownloaderInterface
 {

@@ -7,7 +7,7 @@
         </blacklist>
     </filter>
     <testsuites>
-        <testsuite name="Rss downloader test suite">
+        <testsuite name="Feed downloader test suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>

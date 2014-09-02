@@ -3,6 +3,10 @@
 require dirname(__FILE__) . '/../vendor/autoload.php';
 require dirname(__FILE__) . '/FakeDownloader.php';
 
+use Tomaj\FeedDownloader\Processor;
+use Tomaj\FeedDownloader\Parser\RssParser;
+use \Tomaj\FeedDownloader\FeedItem;
+
 define('OK_URL', 'afoihjdsgoidhsg');
 define('WRONG_FORMAT', 'asdasfsdaf');
 define('CANNOT_DOWNLOAD', 'uyfuyfufuf');
@@ -12,11 +16,11 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     public function testProcessThreeItems()
     {
         $downloader = new FakeDownloader();
-        $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
+        $processor = new Processor($downloader);
 
         $counter = 0;
         $self = $this;
-        $processor->processFeed(OK_URL, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) use (&$counter, $self) {
+        $processor->processFeed(OK_URL, new RssParser(), function(FeedItem $item) use (&$counter, $self) {
             $counter++;
             if ($counter == 1) {
                 $self->assertEquals('Koňak ako zberateľský artikel', $item->getTitle());
@@ -40,16 +44,16 @@ class ProcessorTest extends PHPUnit_Framework_TestCase
     public function testWrongXml()
     {
         $downloader = new FakeDownloader();
-        $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-        $result = $processor->processFeed(WRONG_FORMAT, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {});
-        $this->assertEquals(\Tomaj\RssDownloader\RssProcessor::PARSE_ERROR, $result);
+        $processor = new Processor($downloader);
+        $result = $processor->processFeed(WRONG_FORMAT, new RssParser(), function(FeedItem $item) {});
+        $this->assertEquals(Processor::PARSE_ERROR, $result);
     }
 
     public function testCannotDownload()
     {
         $downloader = new FakeDownloader();
-        $processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-        $result = $processor->processFeed(CANNOT_DOWNLOAD, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {});
-        $this->assertEquals(\Tomaj\RssDownloader\RssProcessor::DOWNLOAD_ERROR, $result);
+        $processor = new Processor($downloader);
+        $result = $processor->processFeed(CANNOT_DOWNLOAD, new RssParser(), function(FeedItem $item) {});
+        $this->assertEquals(Processor::DOWNLOAD_ERROR, $result);
     }
 }

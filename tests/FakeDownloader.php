@@ -1,6 +1,8 @@
 <?php
 
-class FakeDownloader implements \Tomaj\RssDownloader\Downloader\DownloaderInterface
+use \Tomaj\FeedDownloader\Downloader\DownloaderInterface;
+
+class FakeDownloader implements DownloaderInterface
 {
     public function fetch($url)
     {

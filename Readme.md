@@ -1,37 +1,37 @@
-Rss downloader
+Feed downloader
 ==============
 
-[![Build Status](https://secure.travis-ci.org/tomaj/rss-downloader.png)](http://travis-ci.org/tomaj/rss-downloader)
+[![Build Status](https://secure.travis-ci.org/tomaj/feed-downloader.png)](http://travis-ci.org/tomaj/feed-downloader)
 
-[![Latest Stable Version](https://poser.pugx.org/tomaj/rss-downloader/v/stable.svg)](https://packagist.org/packages/tomaj/rss-downloader)
-[![Latest Unstable Version](https://poser.pugx.org/tomaj/rss-downloader/v/unstable.svg)](https://packagist.org/packages/tomaj/rss-downloader)
-[![License](https://poser.pugx.org/tomaj/rss-downloader/license.svg)](https://packagist.org/packages/tomaj/rss-downloader)
+[![Latest Stable Version](https://poser.pugx.org/tomaj/feed-downloader/v/stable.svg)](https://packagist.org/packages/tomaj/feed-downloader)
+[![Latest Unstable Version](https://poser.pugx.org/tomaj/feed-downloader/v/unstable.svg)](https://packagist.org/packages/tomaj/feed-downloader)
+[![License](https://poser.pugx.org/tomaj/feed-downloader/license.svg)](https://packagist.org/packages/tomaj/feed-downloader)
 
-Simple library for downloading rss.
+Simple library for downloading various feed.
 
 Requirements
 ------------
 
-rss downloader requires PHP 5.3.0 or higher.
+Feed downloader requires PHP 5.3.0 or higher.
 
 Instalation
 -----------
 
-The best way to install *rss-downloader* is using [Composer](http://getcomposer.org/):
+The best way to install *feed-downloader* is using [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require tomaj/rss-downloader
+$ composer require tomaj/feed-downloader
 ```
 
 Usage
 -----
 
-You can use rss-downloader to download rss and process data with your function
+You can use feed-downloader to download rss and process data with your function
 
 ```php
-$downloader = new \Tomaj\RssDownloader\Downloader\CurlDownloader();
-$processor = new \Tomaj\RssDownloader\RssProcessor($downloader);
-$result = $processor->processFeed($url, new \Tomaj\RssDownloader\Parser\RssParser(), function(\Tomaj\RssDownloader\FeedItem $item) {
+$downloader = new \Tomaj\FeedDownloader\Downloader\CurlDownloader();
+$processor = new \Tomaj\FeedDownloader\Processor($downloader);
+$result = $processor->processFeed($url, new \Tomaj\FeedDownloader\Parser\RssParser(), function(\Tomaj\FeedDownloader\FeedItem $item) {
 	// custom handling $item
 	echo $item->getTitle() . "\n";
 	echo $item->getLink() . "\n";
@@ -39,9 +39,9 @@ $result = $processor->processFeed($url, new \Tomaj\RssDownloader\Parser\RssParse
 	echo $item->getGuid() . "\n";
 	echo $item->getPubDate() . "\n";
 });
-if ($result === \Tomaj\RssDownloader\RssProcessor::PARSE_ERROR) {
+if ($result === \Tomaj\FeedDownloader\Processor::PARSE_ERROR) {
 	// error in xml
-} elseif ($result === \Tomaj\RssDownloader\RssProcessor::DOWNLOAD_ERROR) {
+} elseif ($result === \Tomaj\FeedDownloader\Processor::DOWNLOAD_ERROR) {
 	// error with downloading
 }
 
@@ -49,4 +49,4 @@ if ($result === \Tomaj\RssDownloader\RssProcessor::PARSE_ERROR) {
 
 -----
 
-Repository [http://github.com/tomaj/rss-downloader](http://github.com/tomaj/rss-downloader).
+Repository [http://github.com/tomaj/feed-downloader](http://github.com/tomaj/feed-downloader).

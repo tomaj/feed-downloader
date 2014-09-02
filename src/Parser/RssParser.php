@@ -1,9 +1,9 @@
 <?php
 
-namespace Tomaj\RssDownloader\Parser;
+namespace Tomaj\FeedDownloader\Parser;
 
-use \Tomaj\RssDownloader\RssProcessor;
-use \Tomaj\RssDownloader\FeedItem;
+use \Tomaj\FeedDownloader\Processor;
+use \Tomaj\FeedDownloader\FeedItem;
 
 class RssParser implements ParserInterface
 {
@@ -14,7 +14,7 @@ class RssParser implements ParserInterface
         try {
             $xml = new \SimpleXMLElement($content);
         } catch (\Exception $e) {
-            return RssProcessor::PARSE_ERROR;
+            return Processor::PARSE_ERROR;
         }
 
         $result = $xml->xpath($this->xpathItems);
@@ -31,6 +31,6 @@ class RssParser implements ParserInterface
             $callback($feedItem);
         }
 
-        return RssProcessor::PROCESS_OK;
+        return Processor::PROCESS_OK;
     }
 }

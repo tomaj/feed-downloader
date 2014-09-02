@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomaj\RssDownloader;
+namespace Tomaj\FeedDownloader;
 
 class FeedItem
 {

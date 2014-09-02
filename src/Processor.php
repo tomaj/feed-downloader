@@ -1,11 +1,11 @@
 <?php
 
-namespace Tomaj\RssDownloader;
+namespace Tomaj\FeedDownloader;
 
-use Tomaj\RssDownloader\Parser\ParserInterface;
-use Tomaj\RssDownloader\Downloader\DownloaderInterface;
+use Tomaj\FeedDownloader\Parser\ParserInterface;
+use Tomaj\FeedDownloader\Downloader\DownloaderInterface;
 
-class RssProcessor implements ProcessorInterface
+class Processor implements ProcessorInterface
 {
     private $downloader;
 
