@@ -52,6 +52,7 @@ Todo
 - Encodings conversions
 - DateTime in FeedItem
 - Unify url/link with one getter
+- Change ungly parser with multiple ifset() methods
 
 -----
 
