@@ -52,5 +52,19 @@ class FakeDownloader implements DownloaderInterface
         {
             return false;
         }
+        elseif ($url == OTHER_XML_FORMAT)
+        {
+            return '<?xml version="1.0" encoding="utf-8"?>
+<items>
+<item>
+    <category><![CDATA[Magazyn]]></category>
+    <url>http://www.wspolczesna.pl/apps/pbcs.dll/article?AID=/20140902/MAGAZYN/140829646</url>
+    <title><![CDATA[Najlepsze nosy z podlaskiej policji chroniły Obamę i księcia Karola]]></title>
+    <leadin><![CDATA[Czarny labrador Wagmor zabezpieczał ostatnią wizytę w Polsce prezydenta USA. Tydzień temu zaś był koło prezydenta Komorowskiego, kiedy ten odwiedził św. Górę Grabarkę. Pies Bako chronił księcia Walii, Karola, podczas jego wizyty w Kruszynianach i Białowieży, a Etur i Czaki złapali wielu przestępców.]]></leadin>
+    <image>http://www.wspolczesna.pl/apps/pbcsi.dll/bilde?Site=GW&amp;Date=20140902&amp;Category=MAGAZYN&amp;ArtNo=140829646&;Ref=AR&amp;MaxW=640&MaxH=480&amp;border=0</image>
+</item>
+</items>
+';
+        }
     }
 }

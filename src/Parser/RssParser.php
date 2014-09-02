@@ -7,7 +7,7 @@ use \Tomaj\FeedDownloader\FeedItem;
 
 class RssParser implements ParserInterface
 {
-    private $xpathItems = '//channel/item';
+    private $xpathItems = '//item';
 
     public function parseContent($content, $callback)
     {
@@ -22,11 +22,33 @@ class RssParser implements ParserInterface
         foreach ($result as $item) {
             $feedItem = new FeedItem();
 
-            $feedItem->setTitle((string)$item->title);
-            $feedItem->setLink((string)$item->link);
-            $feedItem->setDescription((string)$item->description);
-            $feedItem->setGuid((string)$item->guid);
-            $feedItem->setPubDate((string)$item->pubDate);
+            if (isset($item->title)) {
+                $feedItem->setTitle((string)$item->title);    
+            }
+            if (isset($item->link)) {
+                $feedItem->setLink((string)$item->link);    
+            }
+            if (isset($item->leadin)) {
+                $feedItem->setDescription((string)$item->leadin);
+            }
+            if (isset($item->description)) {
+                $feedItem->setDescription((string)$item->description);
+            }
+            if (isset($item->guid)) {
+                $feedItem->setGuid((string)$item->guid);    
+            }
+            if (isset($item->pubDate)) {
+                $feedItem->setPubDate((string)$item->pubDate);    
+            }
+            if ($item->category) {
+                $feedItem->setCategory((string)$item->category);
+            }
+            if ($item->image) {
+                $feedItem->setImage((string)$item->image);
+            }
+            if ($item->url) {
+                $feedItem->setUrl((string)$item->url);
+            }
         
             $callback($feedItem);
         }

@@ -16,6 +16,10 @@ class FeedItem
 
     private $url;
 
+    private $category;
+
+    private $image;
+
     public function setTitle($title)
     {
         $this->title = $title;
@@ -52,6 +56,18 @@ class FeedItem
         return $this;
     }
 
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
     public function getTitle()
     {
         return $this->title;
@@ -80,5 +96,15 @@ class FeedItem
     public function getUrl()
     {
         return $this->url;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 }
