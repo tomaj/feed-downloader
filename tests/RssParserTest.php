@@ -96,14 +96,15 @@ class RssParserTest extends PHPUnit_Framework_TestCase
         $rssParser = new RssParser();
         $counter = 0;
         
-        $result = $rssParser->parseContent($content, function(FeedItem $item) use (&$counter) {
+        $self = $this;
+        $result = $rssParser->parseContent($content, function(FeedItem $item) use (&$counter, $self) {
             $counter++;
 
-            $this->assertEquals('MyCategory', $item->getCategory());
-            $this->assertEquals('http://urlka', $item->getUrl());
-            $this->assertEquals('Item title', $item->getTitle());
-            $this->assertEquals('Item description', $item->getDescription());
-            $this->assertEquals('http://imageurl', $item->getImage());
+            $self->assertEquals('MyCategory', $item->getCategory());
+            $self->assertEquals('http://urlka', $item->getUrl());
+            $self->assertEquals('Item title', $item->getTitle());
+            $self->assertEquals('Item description', $item->getDescription());
+            $self->assertEquals('http://imageurl', $item->getImage());
         });
 
         $this->assertEquals(1, $counter);
