@@ -31,6 +31,7 @@ You can use feed-downloader to download rss and process data with your function
 ```php
 $downloader = new \Tomaj\FeedDownloader\Downloader\CurlDownloader();
 $processor = new \Tomaj\FeedDownloader\Processor($downloader);
+$url = 'http://somerssfeed.xml';
 $result = $processor->processFeed($url, new \Tomaj\FeedDownloader\Parser\RssParser(), function(\Tomaj\FeedDownloader\FeedItem $item) {
 	// custom handling $item
 	echo $item->getTitle() . "\n";
