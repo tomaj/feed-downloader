@@ -3,6 +3,7 @@ Feed downloader
 
 [![Build Status](https://secure.travis-ci.org/tomaj/feed-downloader.png)](http://travis-ci.org/tomaj/feed-downloader)
 [![Code Climate](https://codeclimate.com/github/tomaj/feed-downloader/badges/gpa.svg)](https://codeclimate.com/github/tomaj/feed-downloader)
+[![Test Coverage](https://codeclimate.com/github/tomaj/feed-downloader/badges/coverage.svg)](https://codeclimate.com/github/tomaj/feed-downloader/coverage)
 
 [![Latest Stable Version](https://poser.pugx.org/tomaj/feed-downloader/v/stable.svg)](https://packagist.org/packages/tomaj/feed-downloader)
 [![Latest Unstable Version](https://poser.pugx.org/tomaj/feed-downloader/v/unstable.svg)](https://packagist.org/packages/tomaj/feed-downloader)
