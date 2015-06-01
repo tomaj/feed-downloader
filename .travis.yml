@@ -16,8 +16,7 @@ before_script:
     - composer install --dev
 
 script:
-    - mkdir -p build/logs
-    - make test
+    - make test-coverage
 
 after_script:
-    - php vendor/bin/coveralls -v
+    - CODECLIMATE_REPO_TOKEN=f9f837f0767ec0ad694189f05b13e85c065c0b184c958993deab82f0b71f6046 ./vendor/bin/test-reporter
